@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+">
+<bean id="baseBallCoach" class="com.mycompany.springcore.inversioncontrol.BaseballCoach"/>
+<bean id="trackCoach" class="com.mycompany.springcore.inversioncontrol.TrackCoach"/>
+<bean id="undefiendCoach" class="com.mycompany.springcore.inversioncontrol.UndefinedCoach"/>
+</beans>
