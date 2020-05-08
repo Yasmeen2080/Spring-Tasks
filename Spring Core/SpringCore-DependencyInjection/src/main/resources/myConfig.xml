@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">    
+    <!--Load The Properties File Sport.properties-->
+    <context:property-placeholder location="classpath:sport.properties"/>  
+
+    <!--Create Beans !-->
+    
+<bean id="myFortune" class="com.mycompany.springcore.dependencyinjection.HappyFortuneService"/>
+<bean id="baseBallCoach" class="com.mycompany.springcore.dependencyinjection.BaseballCoach">
+    <constructor-arg ref="myFortune"></constructor-arg>
+</bean>
+    
+<bean id="trackCoach" class="com.mycompany.springcore.dependencyinjection.TrackCoach">
+    <constructor-arg ref="myFortune"></constructor-arg>
+</bean>
+<bean id="undefiendCoach" class="com.mycompany.springcore.dependencyinjection.UndefinedCoach">
+    <constructor-arg ref="myFortune"></constructor-arg>
+</bean>
+
+<bean id="cricketCoach" class="com.mycompany.springcore.dependencyinjection.CricketCoach">
+    <property name="fortuneService" ref="myFortune"/>
+    <property name="emailaddress" value="${myemail}"/>
+</bean>
+
+</beans>
